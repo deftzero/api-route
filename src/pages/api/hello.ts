@@ -17,7 +17,13 @@ export default function handler(
     (async () => {
 
       const browser = await puppeteer.launch({
-        args: ['--font-render-hinting=none', '--no-sandbox'],
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+        ],
+        executablePath: '/usr/bin/chromium-browser',
       });
       const page = await browser.newPage();
 
