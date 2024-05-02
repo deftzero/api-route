@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  name: string;
+  message: string;
 };
 
 export default function handler(
@@ -10,12 +10,10 @@ export default function handler(
   res: NextApiResponse<Data>,
 ) {
 
-  // @ts-ignore: Nextjs API APP_URL: Update it once env contains the app url
-  const nextRequestMeta = req[Reflect.ownKeys(req).find(
-    (s) => String(s) === "Symbol(NextRequestMeta)"
-  )];
 
-  const baseUrl = process.env.APP_URL || ''
-
-  res.status(200).json({ name: baseUrl });
+  if(req.method === 'POST') {    
+    res.status(200).json({ message: req.body.baseUrl });
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }
 }
