@@ -15,7 +15,7 @@ export default function handler(
     (s) => String(s) === "Symbol(NextRequestMeta)"
   )];
 
-  const baseUrl = nextRequestMeta.__NEXT_INIT_URL.split('/api/')[0]
+  const baseUrl = process.env.APP_URL || ''
 
   res.status(200).json({ name: baseUrl });
 }
