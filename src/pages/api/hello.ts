@@ -26,9 +26,7 @@ export default function handler(
         });
         const page = await browser.newPage();
   
-        await page.goto(req.body.baseUrl, {
-          waitUntil: 'networkidle0',
-        });
+        await page.goto(req.body.baseUrl);
   
         await page.setViewport({ width: 1080, height: 1024 });
         const pdf: any = await page.pdf({
