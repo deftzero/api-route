@@ -22,8 +22,7 @@ export default function handler(
           '--disable-setuid-sandbox',
           '--disable-dev-shm-usage',
           '--disable-gpu',
-        ],
-        executablePath: '/usr/bin/chromium-browser',
+        ]
       });
       const page = await browser.newPage();
 
