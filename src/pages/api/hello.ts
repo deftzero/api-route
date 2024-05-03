@@ -26,7 +26,7 @@ export default function handler(
         });
         const page = await browser.newPage();
   
-        await page.goto(req.body.baseUrl);
+        await page.goto('https://www.google.com');
   
         await page.setViewport({ width: 1080, height: 1024 });
         const pdf: any = await page.pdf({
