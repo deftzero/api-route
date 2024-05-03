@@ -39,8 +39,7 @@ export default function handler(
   
         await browser.close();
         
-        res.setHeader('Content-Type', 'application/pdf')
-        res.status(200).send(pdf);
+        res.status(200).send(pdf.toString('base64'));
       // } catch (error) {
       //   res.status(200).json({ message: error });
       // }
